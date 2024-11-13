@@ -10,10 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Read .env file
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, '.env'))
+
+DB_USER = env('DB_USER')
+DB_PASSWORD = env('DB_PASSWORD')
 
 
 # Quick-start development settings - unsuitable for production
@@ -76,8 +85,12 @@ WSGI_APPLICATION = 'webgame_rrt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'webgame_rrt',
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': '',
+        'PORT': '',
     }
 }
 
