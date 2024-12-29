@@ -8,7 +8,7 @@ class User(models.Model):
         verbose_name_plural = 'Users'
 
     def __str__(self):
-        return str(self.id)[:4]
+        return str(self.id)
     
 class MatchResult(models.Model):
     WINNER_CHOICES = (
