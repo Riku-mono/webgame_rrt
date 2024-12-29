@@ -1,0 +1,74 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.game-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border: #f4db74 2px solid;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 0 auto;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.game-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-user-ranking {
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 8px;
+  border-right: #f4db74 2px solid;
+}
+
+.game-user-id {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.game-user-id span {
+  color: #b9b9b9;
+}
+
+.game-play {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.game-play-count {
+  font-size: 20px;
+}
+
+.game-play-detail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.player1 {
+  color: #007cb5a7;
+}
+
+.player2 {
+  color: #d32f2fa7;
+}
+
+.game-wins {
+  font-size: 20px;
+}
+
+.game-vs {
+  font-size: 20px;
+  color: #555555;
+}

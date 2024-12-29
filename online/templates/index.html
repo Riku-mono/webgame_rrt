@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}RRT Web Game{% endblock %}
+
+{% block css %}
+  <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+
+<!-- Game -->
+<div class="container my-5">
+  <div class="webgl-frame-container" style="width: 100%; aspect-ratio: 960 / 545; max-width: 960px;">
+    <iframe id="webgl-frame" src="{% static 'rrt_output/index.html' %}" frameborder="0" scrolling="auto"></iframe>
+  </div>
+  <!-- // Fullscreen button -->
+  <div class="text-center mt-3">
+    <button
+      class="btn btn-primary"
+      onclick="openGameFullscreen(document.getElementById('webgl-frame'))"
+    >
+      フルスクリーン
+    </button>
+  </div>
+  <!-- Your Session Id -->
+  <div id="player-data-elm" class="game-card">
+    <div class="game-user-id">
+      ユーザー: <span id="user-token-elm"></span>
+    </div>
+    <div class="game-players">
+      <div class="game-player player1">
+        <div class="game-player-name">Player 1</div>
+        <div class="game-wins">Wins: <span id="player1-wins">5</span></div>
+      </div>
+      <div class="game-vs">VS</div>
+      <div class="game-player player2">
+        <div class="game-player-name">Player 2</div>
+        <div class="game-wins">Wins: <span id="player2-wins">3</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 詳細 -->
+<div class="container">
+  <h2 class="text-center fw-bold text-main-color">詳細</h2>
+  <p class="text-center">
+    <span>ローカル 2P 対戦型アクションゲームです。</span>
+    <span>2人でプレイすることができます。</span>
+    <span>アイテムを使って相手を場外に吹っ飛ばしましょう！</span>
+  </p>
+</div>
+<!-- 操作方法 -->
+<div class="container">
+  <h2 class="text-center fw-bold text-main-color">操作方法</h2>
+  <div class="d-flex flex-row justify-content-around">
+    <div>
+      <h3 class="text-center fw-semibold">Player 1</h3>
+      <ul>
+        <li>ジャンプ: W</li>
+        <li>右移動: A</li>
+        <li>左移動: D</li>
+        <li>しゃがむ: S</li>
+        <li>攻撃: V</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-center fw-semibold">Player 2</h3>
+      <ul>
+        <li>ジャンプ: I</li>
+        <li>右移動: J</li>
+        <li>左移動: L</li>
+        <li>しゃがむ: K</li>
+        <li>攻撃: B</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,58 @@
+{% load static %}
+{% load django_bootstrap5 %}
+{% csrf_token %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- css -->
+    <link href="{% static 'css/global.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+
+</head>
+<body class="d-flex flex-column vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="--bs-navbar-active-color: #f4db74;">
+            <div class="container-xl d-flex align-items-end justify-content-center fw-bold">
+                <!-- 左側のナビゲーション -->
+                <ul class="navbar-nav flex-row me-2 my-2">
+                    <li class="nav-item">
+                        <a class="nav-link {% block navRanking %}{% endblock %}" href="{% url 'online:ranking' %}" aria-current="page">Ranking</a>
+                    </li>
+                </ul>
+    
+                <!-- 中央のロゴ -->
+                <a href="{% url 'online:index' %}" class="d-flex align-items-center my-2">
+                    <img src="{% static 'images/GameTitle.png' %}" 
+                        alt="RRT Web Game" 
+                        class="d-inline-block align-text-top img-fluid hover-opacity" 
+                        style="height: 48px; image-rendering: pixelated;">
+                </a>
+    
+                <!-- 右側のナビゲーション -->
+                <ul class="navbar-nav flex-row ms-2 my-2">
+                    <li class="nav-item">
+                        <a class="nav-link {% block navCredit %}{% endblock %}" href="{% url 'online:credit' %}">Credit</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container-xl mt-4 flex-grow-1 flex-shrink-1">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 RRT</p>
+    </footer>
+    <script src="{% static 'js/csrftoken.js' %}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

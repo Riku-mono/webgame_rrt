@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}RRT Web Game{% endblock %}
+{% block css %}
+    <link href="{% static 'css/credit.css' %}" rel="stylesheet">
+{% endblock %}
+{% block navCredit %}active{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center fw-bold text-main-color">Game Credits</h1>
+    <div class="container container-wrapper">
+        <div class="row">
+            <div class="col-12 col col-md-6">
+                <h2>開発メンバー</h2>
+                <ul>
+                    <li>Takuya Kawamoto</li>
+                    <li>Riku Ito</li>
+                    <li>Ryo Fujiwara</li>
+                </ul>
+                <p>（五十音順）</p>
+            </div>
+        </div>
+        <!-- 使用したアセット -->
+        <div class="row">
+            <div class="col-12">
+                <h2>使用したアセット</h2>
+                <p>
+                    以下のアセットを使用させていただきました。
+                </p>
+                <h3>
+                    Game Engine
+                </h3>
+                <ul>
+                    <li>
+                        <a href="https://unity.com/">Unity 2022.3.13f1</a>
+                        <span class="text-muted">
+                            / Unity
+                        </span>
+                    </li>
+                </ul>
+                <h3>
+                    Fonts
+                </h3>
+                <ul>
+                    <li>
+                        <a href="https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059">Free Pixel Font - Thaleah</a>
+                        <span class="text-muted">
+                            / Tiny Worlds
+                        </span>
+                    </li>
+                </ul>
+                <h3>
+                    Environments
+                </h3>
+                <ul>
+                    <li>
+                        <a href="https://assetstore.unity.com/packages/2d/environments/pixel-art-platformer-village-props-166114">Pixel Art Platformer - Village Props</a>
+                        <span class="text-muted">
+                            / Cainos
+                        </span>
+                    </li>
+                    <li>
+                        <a href="https://craftpix.net/freebies/ocean-and-clouds-free-pixel-art-backgrounds/">Ocean and Clouds Free Pixel Art Backgrounds</a>
+                        <span class="text-muted">
+                            / CraftPix.net
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

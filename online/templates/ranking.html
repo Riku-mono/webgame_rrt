@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}RRT Web Game{% endblock %}
+{% block navRanking %}active{% endblock %}
+
+{% block css %}
+    <link href="{% static 'css/ranking.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+
+    <h1 class="text-center fw-bold text-main-color">Ranking</h1>
+    <!-- Your Score -->
+    <div class="container">
+        <h2 class="text-left fw-bold">Your Score</h2>
+        <ul id="your-score">
+        </ul>
+    </div>
+    <hr>
+    <!-- Ranking -->
+    <div class="container">
+        <h2 class="text-left fw-bold">Global 🌐</h2>
+        <ul class="">
+            {% for user in ranking %}
+                <li class="game-card">
+                    <div class="game-user">
+                        <div class="game-user-ranking">{{ user.rank }}</div>
+                        <div class="game-user-id" data-user-id="{{ user.user_id }}">ユーザー<span>{{ user.user_id_first4 }}...</span></div>
+                    </div>
+                    <div class="game-play">
+                        <div class="game-play-count">{{ user.total_matches }}</div>
+                        <div class="game-play-label">/</div>
+                        <div class="game-play-detail">
+                            <span>(</span>
+                            <span class="game-wins player1">{{ user.wins1 }}</span>
+                            <span class="game-vs">:</span>
+                            <span class="game-vs">{{ user.draws }}</span>
+                            <span class="game-vs">:</span>
+                            <span class="game-wins player2">{{ user.wins2 }}</span>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/ranking.js' %}"></script>
+{% endblock js %}
